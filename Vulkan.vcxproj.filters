@@ -38,5 +38,8 @@
     <None Include="shaders\vshader.spv">
       <Filter>Shaders</Filter>
     </None>
+    <None Include="readme.md">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

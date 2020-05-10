@@ -158,6 +158,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="readme.md" />
     <None Include="shaders\compile.bat" />
     <None Include="shaders\fshader.frag" />
     <None Include="shaders\fshader.spv" />
