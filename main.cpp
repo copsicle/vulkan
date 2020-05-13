@@ -111,14 +111,22 @@ struct Vertex
 	}
 };
 
-const std::vector<Vertex> vertices = {
+struct UniformBufferObject
+{
+	glm::mat4 model;
+	glm::mat4 view;
+	glm::mat4 proj;
+};
+
+const std::vector<Vertex> vertices =
+{
 	{{-0.9f, -0.9f}, {1.0f, 0.0f, 0.0f}},
 	{{0.9f, -0.9f}, {0.0f, 1.0f, 0.0f}},
 	{{0.9f, 0.9f}, {0.0f, 0.0f, 1.0f}},
 	{{-0.9f, 0.9f}, {1.0f, 0.0f, 1.0f}}
 };
 
-const std::vector<uint32_t> indices = 
+const std::vector<uint32_t> indices =
 {
 	0, 1, 2, 2, 3, 0
 };
@@ -634,7 +642,7 @@ private:
 		multisampling.alphaToOneEnable = VK_FALSE;
 
 		VkPipelineColorBlendAttachmentState colorBlendAttachment{};
-		colorBlendAttachment.colorWriteMask = 
+		colorBlendAttachment.colorWriteMask =
 			VK_COLOR_COMPONENT_R_BIT |
 			VK_COLOR_COMPONENT_G_BIT |
 			VK_COLOR_COMPONENT_B_BIT |
@@ -655,7 +663,7 @@ private:
 		VkDynamicState dynamicStates[]
 		{
 			VK_DYNAMIC_STATE_VIEWPORT,
-		 	VK_DYNAMIC_STATE_LINE_WIDTH
+			VK_DYNAMIC_STATE_LINE_WIDTH
 		};
 
 		VkPipelineDynamicStateCreateInfo dynamicState{};
@@ -736,10 +744,10 @@ private:
 	void createVertexBuffer()
 	{
 		VkDeviceSize bufferSize = sizeof(vertices[0]) * vertices.size();
-		
+
 		VkBuffer stagingBuffer;
 		VkDeviceMemory stagingBufferMemory;
-		
+
 		createBuffer
 		(
 			bufferSize,
@@ -751,9 +759,9 @@ private:
 		);
 
 		void* data;
-		
+
 		vkMapMemory(device, stagingBufferMemory, 0, bufferSize, 0, &data);
-		memcpy(data, vertices.data(), (size_t) bufferSize);
+		memcpy(data, vertices.data(), (size_t)bufferSize);
 		vkUnmapMemory(device, stagingBufferMemory);
 
 		createBuffer
@@ -778,7 +786,7 @@ private:
 
 		VkBuffer stagingBuffer;
 		VkDeviceMemory stagingBufferMemory;
-		
+
 		createBuffer
 		(
 			bufferSize,
@@ -790,9 +798,9 @@ private:
 		);
 
 		void* data;
-		
+
 		vkMapMemory(device, stagingBufferMemory, 0, bufferSize, 0, &data);
-		memcpy(data, indices.data(), (size_t) bufferSize);
+		memcpy(data, indices.data(), (size_t)bufferSize);
 		vkUnmapMemory(device, stagingBufferMemory);
 
 		createBuffer
@@ -935,7 +943,7 @@ private:
 
 			VkBuffer vertexBuffers[] = { vertexBuffer };
 			VkDeviceSize offsets[] = { 0 };
-			
+
 			vkCmdBindVertexBuffers(commandBuffers[i], 0, 1, vertexBuffers, offsets);
 
 			vkCmdBindIndexBuffer(commandBuffers[i], indexBuffer, 0, VK_INDEX_TYPE_UINT32);
