@@ -163,6 +163,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Makefile" />
     <None Include="readme.md" />
     <None Include="shaders\compile.bat" />
     <None Include="shaders\fshader.frag" />
