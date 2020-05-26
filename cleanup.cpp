@@ -18,14 +18,14 @@ void swapChainCleanup()
 		vkDestroyImageView(device, imageView, nullptr);
 
 	vkDestroySwapchainKHR(device, swapChain, nullptr);
-
+	/*
 	for (size_t i{}; i < swapChainImages.size(); i++)
 	{
 		vkDestroyBuffer(device, uniformBuffers[i], nullptr);
 		vkFreeMemory(device, uniformBuffersMemory[i], nullptr);
 	}
-
-	vkDestroyDescriptorPool(device, descriptorPool, nullptr);
+	*/
+	//vkDestroyDescriptorPool(device, descriptorPool, nullptr);
 }
 
 void DestroyDebugUtilsMessengerEXT
@@ -79,7 +79,7 @@ void cleanup()
 {
 	// Call all cleanup operations
 	swapChainCleanup();
-	vkDestroyDescriptorSetLayout(device, descriptorSetLayout, nullptr);
+	//vkDestroyDescriptorSetLayout(device, descriptorSetLayout, nullptr);
 	bufferCleanup();
 	syncCleanup();
 	vkDestroyCommandPool(device, commandPool, nullptr);

@@ -35,7 +35,7 @@ extern std::vector<VkImageView> swapChainImageViews;
 extern std::vector<VkFramebuffer> swapChainFramebuffers;
 
 extern VkRenderPass renderPass;
-extern VkDescriptorSetLayout descriptorSetLayout;
+//extern VkDescriptorSetLayout descriptorSetLayout;
 extern VkPipelineLayout pipelineLayout;
 extern VkPipeline graphicsPipeline;
 
@@ -53,10 +53,10 @@ extern VkDeviceMemory vertexBufferMemory;
 extern VkBuffer indexBuffer;
 extern VkDeviceMemory indexBufferMemory;
 
-extern std::vector<VkBuffer> uniformBuffers;
-extern std::vector<VkDeviceMemory> uniformBuffersMemory;
+//extern std::vector<VkBuffer> uniformBuffers;
+//extern std::vector<VkDeviceMemory> uniformBuffersMemory;
 
-extern VkDescriptorPool descriptorPool;
-extern std::vector<VkDescriptorSet> descriptorSets;
+//extern VkDescriptorPool descriptorPool;
+//extern std::vector<VkDescriptorSet> descriptorSets;
 
 extern bool resizeFrame;

@@ -30,7 +30,7 @@ void loopGLFW()
 	while (!glfwWindowShouldClose(window))
 	{
 		glfwPollEvents();
-		drawFrame();
+		//drawFrame();
 	}
 
 	vkDeviceWaitIdle(device);

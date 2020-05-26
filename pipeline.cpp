@@ -3,7 +3,7 @@
 #include "buffers.h"
 
 VkRenderPass renderPass;
-VkDescriptorSetLayout descriptorSetLayout;
+//VkDescriptorSetLayout descriptorSetLayout;
 VkPipelineLayout pipelineLayout;
 VkPipeline graphicsPipeline;
 
@@ -100,20 +100,13 @@ void createGraphicsPipeline()
 	rasterizer.polygonMode = VK_POLYGON_MODE_FILL;
 	rasterizer.lineWidth = 1.0f;
 	rasterizer.cullMode = VK_CULL_MODE_BACK_BIT;
-	rasterizer.frontFace = VK_FRONT_FACE_COUNTER_CLOCKWISE;
+	rasterizer.frontFace = VK_FRONT_FACE_CLOCKWISE;
 	rasterizer.depthBiasEnable = VK_FALSE;
-	rasterizer.depthBiasConstantFactor = 0.0f;
-	rasterizer.depthBiasClamp = 0.0f;
-	rasterizer.depthBiasSlopeFactor = 0.0f;
 
 	VkPipelineMultisampleStateCreateInfo multisampling{};
 	multisampling.sType = VK_STRUCTURE_TYPE_PIPELINE_MULTISAMPLE_STATE_CREATE_INFO;
 	multisampling.sampleShadingEnable = VK_FALSE;
 	multisampling.rasterizationSamples = VK_SAMPLE_COUNT_1_BIT;
-	multisampling.minSampleShading = 1.0f;
-	multisampling.pSampleMask = nullptr;
-	multisampling.alphaToCoverageEnable = VK_FALSE;
-	multisampling.alphaToOneEnable = VK_FALSE;
 
 	VkPipelineColorBlendAttachmentState colorBlendAttachment{};
 	colorBlendAttachment.colorWriteMask =
@@ -134,23 +127,10 @@ void createGraphicsPipeline()
 	colorBlending.blendConstants[2] = 0.0f;
 	colorBlending.blendConstants[3] = 0.0f;
 
-	VkDynamicState dynamicStates[]
-	{
-		VK_DYNAMIC_STATE_VIEWPORT,
-		VK_DYNAMIC_STATE_LINE_WIDTH
-	};
-
-	VkPipelineDynamicStateCreateInfo dynamicState{};
-	dynamicState.sType = VK_STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO;
-	dynamicState.dynamicStateCount = 2;
-	dynamicState.pDynamicStates = dynamicStates;
-
 	VkPipelineLayoutCreateInfo pipelineLayoutInfo{};
 	pipelineLayoutInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO;
 	pipelineLayoutInfo.setLayoutCount = 0;
-	pipelineLayoutInfo.pSetLayouts = nullptr;
 	pipelineLayoutInfo.pushConstantRangeCount = 0;
-	pipelineLayoutInfo.pPushConstantRanges = nullptr;
 
 	if (vkCreatePipelineLayout(device, &pipelineLayoutInfo, nullptr, &pipelineLayout) != VK_SUCCESS)
 		throw std::runtime_error("failed to create pipeline layout");
@@ -164,14 +144,11 @@ void createGraphicsPipeline()
 	pipelineInfo.pViewportState = &viewportState;
 	pipelineInfo.pRasterizationState = &rasterizer;
 	pipelineInfo.pMultisampleState = &multisampling;
-	pipelineInfo.pDepthStencilState = nullptr;
 	pipelineInfo.pColorBlendState = &colorBlending;
-	pipelineInfo.pDynamicState = nullptr;
 	pipelineInfo.layout = pipelineLayout;
 	pipelineInfo.renderPass = renderPass;
 	pipelineInfo.subpass = 0;
 	pipelineInfo.basePipelineHandle = VK_NULL_HANDLE;
-	pipelineInfo.basePipelineIndex = -1;
 
 	if (vkCreateGraphicsPipelines(device, VK_NULL_HANDLE, 1, &pipelineInfo, nullptr, &graphicsPipeline) != VK_SUCCESS)
 		throw std::runtime_error("failed to create graphics pipeline");
@@ -179,7 +156,7 @@ void createGraphicsPipeline()
 	vkDestroyShaderModule(device, fragShaderModule, nullptr);
 	vkDestroyShaderModule(device, vertShaderModule, nullptr);
 }
-
+/*
 void createDescriptorSetLayout()
 {
 	VkDescriptorSetLayoutBinding uboLayoutBinding{};
@@ -197,7 +174,7 @@ void createDescriptorSetLayout()
 	if (vkCreateDescriptorSetLayout(device, &layoutInfo, nullptr, &descriptorSetLayout) != VK_SUCCESS)
 		throw std::runtime_error("failed to create descriptor set layout");
 }
-
+*/
 void createRenderPass()
 {
 	VkAttachmentDescription colorAttachment{};
@@ -243,6 +220,6 @@ void createRenderPass()
 void initPipeline()
 {
 	createRenderPass();
-	createDescriptorSetLayout();
+	//createDescriptorSetLayout();
 	createGraphicsPipeline();
 }

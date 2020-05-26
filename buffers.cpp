@@ -135,7 +135,7 @@ void createIndexBuffer()
 	vkDestroyBuffer(device, stagingBuffer, nullptr);
 	vkFreeMemory(device, stagingBufferMemory, nullptr);
 }
-
+/*
 void updateUniformBuffer(uint32_t currentImage)
 {
 	static auto startTime = std::chrono::high_resolution_clock::now();
@@ -175,7 +175,7 @@ void createUniformBuffers()
 			uniformBuffersMemory[i]
 		);
 }
-
+*/
 void initBuffers()
 {
 	createVertexBuffer();

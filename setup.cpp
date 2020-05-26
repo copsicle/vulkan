@@ -6,7 +6,7 @@
 #include "pipeline.h"
 #include "commands.h"
 #include "buffers.h"
-#include "descriptors.h"
+//#include "descriptors.h"
 #include "sync.h"
 #include "cleanup.h"
 

@@ -45,13 +45,7 @@
     <ClCompile Include="buffers.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="descriptors.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="sync.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="draw.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -106,13 +100,7 @@
     <ClInclude Include="buffers.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="descriptors.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="sync.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="draw.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
