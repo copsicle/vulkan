@@ -45,7 +45,7 @@ extern std::vector<VkSemaphore> imageAvailableSemaphore;
 extern std::vector<VkSemaphore> renderFinishedSemaphore;
 extern std::vector<VkFence> inFlightFences;
 extern std::vector<VkFence> imagesInFlight;
-extern size_t currentFrame{};
+extern size_t currentFrame;
 
 extern VkBuffer vertexBuffer;
 extern VkDeviceMemory vertexBufferMemory;

@@ -1,5 +1,6 @@
 #include "objects.h"
 #include "pipeline.h"
+#include "buffers.h"
 
 VkRenderPass renderPass;
 VkDescriptorSetLayout descriptorSetLayout;
