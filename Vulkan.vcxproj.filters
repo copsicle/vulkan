@@ -30,6 +30,12 @@
     <ClCompile Include="setup.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="devices.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="swapchain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\compile.bat">
@@ -53,6 +59,12 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="setup.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="devices.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="swapchain.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

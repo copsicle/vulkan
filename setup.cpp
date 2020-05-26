@@ -1,5 +1,7 @@
 #include "objects.h"
 #include "setup.h"
+#include "devices.h"
+#include "glfw.h"
 
 VkInstance instance;
 VkDebugUtilsMessengerEXT debugMessenger;

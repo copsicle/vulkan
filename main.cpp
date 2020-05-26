@@ -2,6 +2,8 @@
 #include "glfw.h"
 #include "setup.h"
 #include "cleanup.h"
+#include "devices.h"
+#include "swapchain.h"
 
 // General main class to host the execution of all functions
 class VK3D
@@ -13,6 +15,9 @@ public:
 		initGLFW();
 		glfwSetWindowUserPointer(window, this);
 		initVulkan();
+		createSurface();
+		initializeDevices();
+		createSwapChain();
 		loopGLFW();
 
 		cleanup();

@@ -3,5 +3,6 @@
 const uint32_t WIDTH = 1280;
 const uint32_t HEIGHT = 720;
 // Declare GLFW handling functions for general use
+void createSurface();
 void initGLFW();
 void loopGLFW();

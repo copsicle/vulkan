@@ -156,6 +156,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="cleanup.cpp" />
+    <ClCompile Include="devices.cpp" />
     <ClCompile Include="main.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
@@ -164,6 +165,7 @@
     </ClCompile>
     <ClCompile Include="glfw.cpp" />
     <ClCompile Include="setup.cpp" />
+    <ClCompile Include="swapchain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Makefile" />
@@ -172,9 +174,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cleanup.h" />
+    <ClInclude Include="devices.h" />
     <ClInclude Include="glfw.h" />
     <ClInclude Include="objects.h" />
     <ClInclude Include="setup.h" />
+    <ClInclude Include="swapchain.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

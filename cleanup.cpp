@@ -2,6 +2,31 @@
 #include "cleanup.h"
 #include "setup.h"
 
+void cleanupSwapChain()
+{
+	for (auto framebuffer : swapChainFramebuffers)
+		vkDestroyFramebuffer(device, framebuffer, nullptr);
+
+	//vkFreeCommandBuffers(device, commandPool, static_cast<uint32_t>(commandBuffers.size()), commandBuffers.data());
+
+	//vkDestroyPipeline(device, graphicsPipeline, nullptr);
+	//vkDestroyPipelineLayout(device, pipelineLayout, nullptr);
+	//vkDestroyRenderPass(device, renderPass, nullptr);
+
+	for (auto imageView : swapChainImageViews)
+		vkDestroyImageView(device, imageView, nullptr);
+
+	vkDestroySwapchainKHR(device, swapChain, nullptr);
+	/*
+	for (size_t i{}; i < swapChainImages.size(); i++)
+	{
+		vkDestroyBuffer(device, uniformBuffers[i], nullptr);
+		vkFreeMemory(device, uniformBuffersMemory[i], nullptr);
+	}
+
+	vkDestroyDescriptorPool(device, descriptorPool, nullptr);*/
+}
+
 void DestroyDebugUtilsMessengerEXT
 (
 	VkInstance instance,
@@ -16,8 +41,10 @@ void DestroyDebugUtilsMessengerEXT
 
 void vulkanCleanup()
 {
-	if (enableValidationLayers) DestroyDebugUtilsMessengerEXT(instance, debugMessenger, nullptr);
+	if (enableValidationLayers)
+		DestroyDebugUtilsMessengerEXT(instance, debugMessenger, nullptr);
 
+	vkDestroySurfaceKHR(instance, surface, nullptr);
 	vkDestroyInstance(instance, nullptr);
 }
 
@@ -31,6 +58,8 @@ void glfwCleanup()
 void cleanup()
 {
 	// Call all cleanup operations
+	cleanupSwapChain();
+	vkDestroyDevice(device, nullptr);
 	vulkanCleanup();
 	glfwCleanup();
 }
