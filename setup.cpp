@@ -2,6 +2,7 @@
 #include "setup.h"
 #include "devices.h"
 #include "glfw.h"
+#include "swapchain.h"
 
 VkInstance instance;
 VkDebugUtilsMessengerEXT debugMessenger;
@@ -139,4 +140,7 @@ void initVulkan()
 {
 	createInstance();
 	setupDebugMessenger();
+	createSurface();
+	initializeDevices();
+	createSwapChain();
 }

@@ -164,6 +164,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="glfw.cpp" />
+    <ClCompile Include="pipeline.cpp" />
     <ClCompile Include="setup.cpp" />
     <ClCompile Include="swapchain.cpp" />
   </ItemGroup>
@@ -177,6 +178,7 @@
     <ClInclude Include="devices.h" />
     <ClInclude Include="glfw.h" />
     <ClInclude Include="objects.h" />
+    <ClInclude Include="pipeline.h" />
     <ClInclude Include="setup.h" />
     <ClInclude Include="swapchain.h" />
   </ItemGroup>
