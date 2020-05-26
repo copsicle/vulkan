@@ -7,18 +7,21 @@
 class VK3D
 {
 public:
-	bool framebufferResized{ false };
+	void
 
 	void run()
 	{
 		// Run the application
 		initGLFW();
+		handleResize();
 		initVulkan();
 		loopGLFW();
 
 		cleanup();
 	}
 private:
+	bool framebufferResized{ false };
+
 	static void framebufferResizeCallback(GLFWwindow* window, int width, int height)
 	{
 		auto app{ reinterpret_cast<VK3D*>(glfwGetWindowUserPointer(window)) };

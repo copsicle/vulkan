@@ -12,3 +12,4 @@ const std::vector<const char*> validationLayers
 };
 
 void initVulkan();
+void recreateSwapChain();

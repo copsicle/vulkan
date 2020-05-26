@@ -1,5 +1,6 @@
 #include "objects.h"
 #include "glfw.h"
+#include "draw.h"
 
 GLFWwindow* window;
 VkSurfaceKHR surface;
@@ -27,7 +28,10 @@ void loopGLFW()
 {
 	// Keep the window running and responsive to user actions
 	while (!glfwWindowShouldClose(window))
+	{
 		glfwPollEvents();
+		drawFrame();
+	}
 
 	vkDeviceWaitIdle(device);
 }

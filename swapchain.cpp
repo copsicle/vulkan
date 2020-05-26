@@ -159,8 +159,6 @@ void createSwapChain()
 	else
 	{
 		createInfo.imageSharingMode = VK_SHARING_MODE_EXCLUSIVE;
-		createInfo.queueFamilyIndexCount = 0;
-		createInfo.pQueueFamilyIndices = nullptr;
 	}
 
 	createInfo.preTransform = swapChainSupport.capabilities.currentTransform;

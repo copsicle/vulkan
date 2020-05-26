@@ -14,6 +14,7 @@
 // Include useful libraries
 #include <algorithm>
 // Global objects
+
 extern GLFWwindow* window;
 
 extern VkInstance instance;
@@ -41,8 +42,8 @@ extern VkPipeline graphicsPipeline;
 extern VkCommandPool commandPool;
 extern std::vector<VkCommandBuffer> commandBuffers;
 
-extern std::vector<VkSemaphore> imageAvailableSemaphore;
-extern std::vector<VkSemaphore> renderFinishedSemaphore;
+extern std::vector<VkSemaphore> imageAvailableSemaphores;
+extern std::vector<VkSemaphore> renderFinishedSemaphores;
 extern std::vector<VkFence> inFlightFences;
 extern std::vector<VkFence> imagesInFlight;
 extern size_t currentFrame;
@@ -58,4 +59,4 @@ extern std::vector<VkDeviceMemory> uniformBuffersMemory;
 extern VkDescriptorPool descriptorPool;
 extern std::vector<VkDescriptorSet> descriptorSets;
 
-extern bool framebufferResized;
+extern bool resizeFrame;

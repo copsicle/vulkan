@@ -180,5 +180,5 @@ void initBuffers()
 {
 	createVertexBuffer();
 	createIndexBuffer();
-	createUniformBuffers();
+	//createUniformBuffers();
 }

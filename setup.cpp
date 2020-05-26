@@ -55,7 +55,8 @@ void populateDebugMessenger(VkDebugUtilsMessengerCreateInfoEXT& debugInfo)
 
 void setupDebugMessenger()
 {
-	if (!enableValidationLayers) return;
+	if (!enableValidationLayers)
+		return;
 
 	VkDebugUtilsMessengerCreateInfoEXT debugInfo{};
 	populateDebugMessenger(debugInfo);
@@ -91,8 +92,11 @@ bool checkValidationLayerSupport()
 
 		for (const auto& layerProperties : layers)
 		{
-			layerFound = true;
-			break;
+			if (strcmp(layerName, layerProperties.layerName) == 0)
+			{
+				layerFound = true;
+				break;
+			}
 		}
 
 		if (!layerFound)
@@ -160,8 +164,8 @@ void recreateSwapChain()
 	createRenderPass();
 	createGraphicsPipeline();
 	createFramebuffers();
-	createUniformBuffers();
-	initDescriptors();
+	//createUniformBuffers();
+	//initDescriptors();
 	createCommandBuffers();
 }
 
@@ -176,7 +180,7 @@ void initVulkan()
 	createFramebuffers();
 	createCommandPool();
 	initBuffers();
-	initDescriptors();
+	//initDescriptors();
 	createCommandBuffers();
 	createSyncObjects();
 }

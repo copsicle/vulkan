@@ -44,8 +44,8 @@ void syncCleanup()
 {
 	for (size_t i{}; i < MAX_FRAMES_IN_FLIGHT; i++)
 	{
-		vkDestroySemaphore(device, renderFinishedSemaphore[i], nullptr);
-		vkDestroySemaphore(device, imageAvailableSemaphore[i], nullptr);
+		vkDestroySemaphore(device, renderFinishedSemaphores[i], nullptr);
+		vkDestroySemaphore(device, imageAvailableSemaphores[i], nullptr);
 		vkDestroyFence(device, inFlightFences[i], nullptr);
 	}
 }

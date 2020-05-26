@@ -51,6 +51,9 @@
     <ClCompile Include="sync.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="draw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\compile.bat">
@@ -107,6 +110,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="sync.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="draw.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
