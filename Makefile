@@ -1,24 +1,20 @@
 VULKAN_SDK_PATH = /mnt/c/VulkanSDK/1.2.135.0/x86_64
+GLFW_PATH = "/mnt/c/Users/Gonen/Documents/Visual Studio 2019/Libraries/glfw/include"
 
 PROG = VK3D
 
 CC = g++
-CFLAGS = -std=c++17 -g -Wall -I$(VULKAN_SDK_PATH)/include
+CFLAGS = -std=c++17 -Wall -I$(VULKAN_SDK_PATH)/include -I$(GLFW_PATH)
 LDFLAGS = -L$(VULKAN_SDK_PATH)/lib `pkg-config --static --libs glfw3` -lvulkan
 
-OBJS = main.o glfw.o cleanup.o
+OBJS = glfw.o main.o setup.o cleanup.o
+DEPS = objects.h glfw.h cleanup.h setup.h
+
+%.o: %.cpp $(DEPS)
+	$(CC) $(CFLAGS) -c -o $@ $<
 
 $(PROG): $(OBJS)
-	$(CC) $(LDFLAGS) -o $(PROG) $(OBJS) 
-
-main.o:
-	$(CC) $(CFLAGS) -c main.cpp
-
-glfw.o: glfw.h
-	$(CC) $(CFLAGS) -c glfw.cpp
-
-cleanup.o: cleanup.h
-	$(CC) $(CFLAGS) -c cleanup.cpp
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^
 
 .PHONY: test clean
 

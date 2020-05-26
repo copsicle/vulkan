@@ -11,6 +11,7 @@ public:
 	{
 		// Run the application
 		initGLFW();
+		glfwSetWindowUserPointer(window, this);
 		initVulkan();
 		loopGLFW();
 
