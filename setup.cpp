@@ -143,4 +143,5 @@ void initVulkan()
 	createSurface();
 	initializeDevices();
 	createSwapChain();
+	createImageViews();
 }

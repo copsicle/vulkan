@@ -9,3 +9,4 @@ struct SwapChainSupportDetails
 
 SwapChainSupportDetails querySwapChainSupport(VkPhysicalDevice device);
 void createSwapChain();
+void createImageViews();
