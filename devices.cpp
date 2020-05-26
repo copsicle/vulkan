@@ -147,7 +147,7 @@ void createLogicalDevice()
 	vkGetDeviceQueue(device, indices.presentFamily.value(), 0, &presentQueue);
 }
 
-void initializeDevices()
+void initDevices()
 {
 	pickPhysicalDevice();
 	createLogicalDevice();

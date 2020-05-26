@@ -178,3 +178,9 @@ void createSwapChain()
 	swapChainImageFormat = surfaceFormat.format;
 	swapChainExtent = extent;
 }
+
+void initSwapChain()
+{
+	createSwapChain();
+	createImageViews();
+}

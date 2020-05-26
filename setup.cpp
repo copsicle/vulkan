@@ -4,6 +4,8 @@
 #include "glfw.h"
 #include "swapchain.h"
 #include "pipeline.h"
+#include "commands.h"
+#include "buffers.h"
 
 VkInstance instance;
 VkDebugUtilsMessengerEXT debugMessenger;
@@ -142,11 +144,10 @@ void initVulkan()
 	createInstance();
 	setupDebugMessenger();
 	createSurface();
-	initializeDevices();
-	createSwapChain();
-	createImageViews();
-	createRenderPass();
-	createDescriptorSetLayout();
-	createGraphicsPipeline();
+	initDevices();
+	initSwapChain();
+	initPipeline();
 	createFramebuffers();
+	createCommandPool();
+	initBuffers();
 }

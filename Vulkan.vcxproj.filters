@@ -42,6 +42,12 @@
     <ClCompile Include="commands.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="buffers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="descriptors.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\compile.bat">
@@ -77,6 +83,12 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="commands.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="buffers.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="descriptors.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -35,6 +35,4 @@ struct Vertex
 	}
 };
 
-void createGraphicsPipeline();
-void createDescriptorSetLayout();
-void createRenderPass();
+void initPipeline();

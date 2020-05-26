@@ -40,3 +40,14 @@ extern VkPipeline graphicsPipeline;
 
 extern VkCommandPool commandPool;
 extern std::vector<VkCommandBuffer> commandBuffers;
+
+extern VkBuffer vertexBuffer;
+extern VkDeviceMemory vertexBufferMemory;
+extern VkBuffer indexBuffer;
+extern VkDeviceMemory indexBufferMemory;
+
+extern std::vector<VkBuffer> uniformBuffers;
+extern std::vector<VkDeviceMemory> uniformBuffersMemory;
+
+extern VkDescriptorPool descriptorPool;
+extern std::vector<VkDescriptorSet> descriptorSets;

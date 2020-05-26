@@ -238,3 +238,10 @@ void createRenderPass()
 	if (vkCreateRenderPass(device, &renderPassInfo, nullptr, &renderPass) != VK_SUCCESS)
 		throw std::runtime_error("failed to create render pass");
 }
+
+void initPipeline()
+{
+	createRenderPass();
+	createDescriptorSetLayout();
+	createGraphicsPipeline();
+}

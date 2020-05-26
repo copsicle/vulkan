@@ -18,4 +18,4 @@ const std::vector<const char*> deviceExtensions
 };
 
 QueueFamilyIndices findQueueFamilies(VkPhysicalDevice device);
-void initializeDevices();
+void initDevices();
