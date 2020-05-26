@@ -8,5 +8,6 @@ struct SwapChainSupportDetails
 };
 
 SwapChainSupportDetails querySwapChainSupport(VkPhysicalDevice device);
+void createFramebuffers();
 void createSwapChain();
 void createImageViews();

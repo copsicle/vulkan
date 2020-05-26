@@ -1,7 +1,9 @@
 #pragma once
-// Include GLFW and Vulkan
+// Include GLFW, GLM and Vulkan
 #define GLFW_INCLUDE_VULKAN
+#define GLM_FORCE_RADIANS
 #include <GLFW/glfw3.h>
+#include <glm/glm.hpp>
 // Include essential libraries
 #include <iostream>
 #include <fstream>
@@ -35,3 +37,6 @@ extern VkRenderPass renderPass;
 extern VkDescriptorSetLayout descriptorSetLayout;
 extern VkPipelineLayout pipelineLayout;
 extern VkPipeline graphicsPipeline;
+
+extern VkCommandPool commandPool;
+extern std::vector<VkCommandBuffer> commandBuffers;

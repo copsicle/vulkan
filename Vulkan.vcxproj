@@ -156,6 +156,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="cleanup.cpp" />
+    <ClCompile Include="commands.cpp" />
     <ClCompile Include="devices.cpp" />
     <ClCompile Include="main.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
@@ -175,6 +176,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cleanup.h" />
+    <ClInclude Include="commands.h" />
     <ClInclude Include="devices.h" />
     <ClInclude Include="glfw.h" />
     <ClInclude Include="objects.h" />

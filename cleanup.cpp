@@ -9,9 +9,9 @@ void cleanupSwapChain()
 
 	//vkFreeCommandBuffers(device, commandPool, static_cast<uint32_t>(commandBuffers.size()), commandBuffers.data());
 
-	//vkDestroyPipeline(device, graphicsPipeline, nullptr);
-	//vkDestroyPipelineLayout(device, pipelineLayout, nullptr);
-	//vkDestroyRenderPass(device, renderPass, nullptr);
+	vkDestroyPipeline(device, graphicsPipeline, nullptr);
+	vkDestroyPipelineLayout(device, pipelineLayout, nullptr);
+	vkDestroyRenderPass(device, renderPass, nullptr);
 
 	for (auto imageView : swapChainImageViews)
 		vkDestroyImageView(device, imageView, nullptr);
@@ -59,6 +59,7 @@ void cleanup()
 {
 	// Call all cleanup operations
 	cleanupSwapChain();
+	vkDestroyDescriptorSetLayout(device, descriptorSetLayout, nullptr);
 	vkDestroyDevice(device, nullptr);
 	vulkanCleanup();
 	glfwCleanup();

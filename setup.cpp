@@ -3,6 +3,7 @@
 #include "devices.h"
 #include "glfw.h"
 #include "swapchain.h"
+#include "pipeline.h"
 
 VkInstance instance;
 VkDebugUtilsMessengerEXT debugMessenger;
@@ -30,7 +31,7 @@ static VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback
 	void* pUserData
 )
 {
-	std::cerr << "validation layer: " << pCallbackData->pMessage << std::endl;
+	std::cerr << pCallbackData->pMessage << std::endl;
 	return VK_FALSE;
 }
 
@@ -144,4 +145,8 @@ void initVulkan()
 	initializeDevices();
 	createSwapChain();
 	createImageViews();
+	createRenderPass();
+	createDescriptorSetLayout();
+	createGraphicsPipeline();
+	createFramebuffers();
 }
