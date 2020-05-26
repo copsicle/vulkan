@@ -163,6 +163,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="glfw.cpp" />
+    <ClCompile Include="setup.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Makefile" />
@@ -172,6 +173,8 @@
   <ItemGroup>
     <ClInclude Include="cleanup.h" />
     <ClInclude Include="glfw.h" />
+    <ClInclude Include="objects.h" />
+    <ClInclude Include="setup.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

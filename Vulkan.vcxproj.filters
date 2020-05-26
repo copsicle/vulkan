@@ -27,6 +27,9 @@
     <ClCompile Include="glfw.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="setup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\compile.bat">
@@ -44,6 +47,12 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="cleanup.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="objects.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="setup.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

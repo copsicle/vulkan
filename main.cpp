@@ -1,4 +1,6 @@
+#include "objects.h"
 #include "glfw.h"
+#include "setup.h"
 #include "cleanup.h"
 
 // General main class to host the execution of all functions
@@ -9,8 +11,9 @@ public:
 	{
 		// Run the application
 		initGLFW();
+		initVulkan();
 		loopGLFW();
-		
+
 		cleanup();
 	}
 };
