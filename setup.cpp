@@ -6,6 +6,9 @@
 #include "pipeline.h"
 #include "commands.h"
 #include "buffers.h"
+#include "descriptors.h"
+#include "sync.h"
+#include "cleanup.h"
 
 VkInstance instance;
 VkDebugUtilsMessengerEXT debugMessenger;
@@ -139,6 +142,29 @@ void createInstance()
 		throw std::runtime_error("failed to create vulkan instance");
 }
 
+void recreateSwapChain()
+{
+	int width{}, height{};
+	glfwGetFramebufferSize(window, &width, &height);
+	while (!width || !height)
+	{
+		glfwGetFramebufferSize(window, &width, &height);
+		glfwWaitEvents();
+	}
+
+	vkDeviceWaitIdle(device);
+
+	swapChainCleanup();
+
+	initSwapChain();
+	createRenderPass();
+	createGraphicsPipeline();
+	createFramebuffers();
+	createUniformBuffers();
+	initDescriptors();
+	createCommandBuffers();
+}
+
 void initVulkan()
 {
 	createInstance();
@@ -150,4 +176,7 @@ void initVulkan()
 	createFramebuffers();
 	createCommandPool();
 	initBuffers();
+	initDescriptors();
+	createCommandBuffers();
+	createSyncObjects();
 }

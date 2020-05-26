@@ -24,3 +24,4 @@ const std::vector<uint32_t> indices =
 };
 
 void initBuffers();
+void createUniformBuffers();

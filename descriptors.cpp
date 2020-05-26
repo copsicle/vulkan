@@ -58,7 +58,7 @@ void createDescriptorSets()
 	}
 }
 
-void initBuffers()
+void initDescriptors()
 {
 	createDescriptorPool();
 	createDescriptorSets();

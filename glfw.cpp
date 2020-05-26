@@ -28,4 +28,6 @@ void loopGLFW()
 	// Keep the window running and responsive to user actions
 	while (!glfwWindowShouldClose(window))
 		glfwPollEvents();
+
+	vkDeviceWaitIdle(device);
 }

@@ -36,3 +36,5 @@ struct Vertex
 };
 
 void initPipeline();
+void createRenderPass();
+void createGraphicsPipeline();

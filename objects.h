@@ -41,6 +41,12 @@ extern VkPipeline graphicsPipeline;
 extern VkCommandPool commandPool;
 extern std::vector<VkCommandBuffer> commandBuffers;
 
+extern std::vector<VkSemaphore> imageAvailableSemaphore;
+extern std::vector<VkSemaphore> renderFinishedSemaphore;
+extern std::vector<VkFence> inFlightFences;
+extern std::vector<VkFence> imagesInFlight;
+extern size_t currentFrame{};
+
 extern VkBuffer vertexBuffer;
 extern VkDeviceMemory vertexBufferMemory;
 extern VkBuffer indexBuffer;
@@ -51,3 +57,5 @@ extern std::vector<VkDeviceMemory> uniformBuffersMemory;
 
 extern VkDescriptorPool descriptorPool;
 extern std::vector<VkDescriptorSet> descriptorSets;
+
+extern bool framebufferResized;

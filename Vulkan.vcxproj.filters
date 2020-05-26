@@ -48,6 +48,9 @@
     <ClCompile Include="descriptors.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="sync.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\compile.bat">
@@ -58,6 +61,18 @@
     </None>
     <None Include="Makefile">
       <Filter>Source Files</Filter>
+    </None>
+    <None Include="vshader.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="fshader.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="shaders\fshader.spv">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="shaders\vshader.spv">
+      <Filter>Shaders</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -89,6 +104,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="descriptors.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sync.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
