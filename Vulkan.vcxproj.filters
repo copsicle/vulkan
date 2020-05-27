@@ -16,6 +16,12 @@
     <Filter Include="Shaders">
       <UniqueIdentifier>{c2d100e1-f2ba-4f72-9315-5fd08b07cac3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Textures">
+      <UniqueIdentifier>{c21aed49-24f5-4b89-a7fd-cc3fa8f92497}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models">
+      <UniqueIdentifier>{e3ec61a0-37a9-4877-ac7e-04bef5ba10f5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -115,5 +121,15 @@
     <ClInclude Include="model.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="textures\viking_room.png">
+      <Filter>Textures</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="models\viking_room.obj">
+      <Filter>Models</Filter>
+    </Object>
   </ItemGroup>
 </Project>

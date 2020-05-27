@@ -41,7 +41,7 @@ static VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback
 	return VK_FALSE;
 }
 
-void populateDebugMessenger(VkDebugUtilsMessengerCreateInfoEXT& debugInfo)
+void populateDebugMessengerCreateInfo(VkDebugUtilsMessengerCreateInfoEXT& debugInfo)
 {
 	debugInfo = {};
 	debugInfo.sType = VK_STRUCTURE_TYPE_DEBUG_UTILS_MESSENGER_CREATE_INFO_EXT;
@@ -60,7 +60,7 @@ void setupDebugMessenger()
 		return;
 
 	VkDebugUtilsMessengerCreateInfoEXT debugInfo{};
-	populateDebugMessenger(debugInfo);
+	populateDebugMessengerCreateInfo(debugInfo);
 
 	if (CreateDebugMessenger(instance, &debugInfo, nullptr, &debugMessenger) != VK_SUCCESS)
 		throw std::runtime_error("could not setup debug messenger");
