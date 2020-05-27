@@ -7,8 +7,8 @@ CC = g++
 CFLAGS = -std=c++17 -Wall -I$(VULKAN_SDK_PATH)/include -I$(GLFW_PATH)
 LDFLAGS = -L$(VULKAN_SDK_PATH)/lib `pkg-config --static --libs glfw3` -lvulkan
 
-OBJS = glfw.o main.o setup.o cleanup.o
-DEPS = objects.h glfw.h cleanup.h setup.h
+OBJS = buffers.o cleanup.o commands.o descriptors.o devices.o glfw.o main.o model.o pipeline.o setup.o swapchain.o sync.o
+DEPS = buffers.h cleanup.h commands.h descriptors.h devices.h glfw.h objects.h model.h pipeline.h setup.h swapchain.h sync.h
 
 %.o: %.cpp $(DEPS)
 	$(CC) $(CFLAGS) -c -o $@ $<

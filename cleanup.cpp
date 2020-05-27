@@ -3,10 +3,14 @@
 #include "setup.h"
 #include "sync.h"
 
-void swapChainCleanup()
-{
-	for (auto framebuffer : swapChainFramebuffers)
+void cleanupSwapChain() {
+	vkDestroyImageView(device, depthImageView, nullptr);
+	vkDestroyImage(device, depthImage, nullptr);
+	vkFreeMemory(device, depthImageMemory, nullptr);
+
+	for (auto framebuffer : swapChainFramebuffers) {
 		vkDestroyFramebuffer(device, framebuffer, nullptr);
+	}
 
 	vkFreeCommandBuffers(device, commandPool, static_cast<uint32_t>(commandBuffers.size()), commandBuffers.data());
 
@@ -14,30 +18,34 @@ void swapChainCleanup()
 	vkDestroyPipelineLayout(device, pipelineLayout, nullptr);
 	vkDestroyRenderPass(device, renderPass, nullptr);
 
-	for (auto imageView : swapChainImageViews)
+	for (auto imageView : swapChainImageViews) {
 		vkDestroyImageView(device, imageView, nullptr);
+	}
 
 	vkDestroySwapchainKHR(device, swapChain, nullptr);
-	/*
-	for (size_t i{}; i < swapChainImages.size(); i++)
-	{
+
+	for (size_t i = 0; i < swapChainImages.size(); i++) {
 		vkDestroyBuffer(device, uniformBuffers[i], nullptr);
 		vkFreeMemory(device, uniformBuffersMemory[i], nullptr);
 	}
-	*/
-	//vkDestroyDescriptorPool(device, descriptorPool, nullptr);
+
+	vkDestroyDescriptorPool(device, descriptorPool, nullptr);
 }
 
-void DestroyDebugUtilsMessengerEXT
-(
-	VkInstance instance,
-	VkDebugUtilsMessengerEXT debugMessenger,
-	const VkAllocationCallbacks* pAllocator
-)
-{
-	auto func{ (PFN_vkDestroyDebugUtilsMessengerEXT)vkGetInstanceProcAddr(instance, "vkDestroyDebugUtilsMessengerEXT") };
-	if (func != nullptr)
+void DestroyDebugUtilsMessengerEXT(VkInstance instance, VkDebugUtilsMessengerEXT debugMessenger, const VkAllocationCallbacks* pAllocator) {
+	auto func = (PFN_vkDestroyDebugUtilsMessengerEXT)vkGetInstanceProcAddr(instance, "vkDestroyDebugUtilsMessengerEXT");
+	if (func != nullptr) {
 		func(instance, debugMessenger, pAllocator);
+	}
+}
+
+void textureCleanup()
+{
+	vkDestroySampler(device, textureSampler, nullptr);
+	vkDestroyImageView(device, textureImageView, nullptr);
+
+	vkDestroyImage(device, textureImage, nullptr);
+	vkFreeMemory(device, textureImageMemory, nullptr);
 }
 
 void syncCleanup()
@@ -78,8 +86,9 @@ void glfwCleanup()
 void cleanup()
 {
 	// Call all cleanup operations
-	swapChainCleanup();
-	//vkDestroyDescriptorSetLayout(device, descriptorSetLayout, nullptr);
+	cleanupSwapChain();
+	textureCleanup();
+	vkDestroyDescriptorSetLayout(device, descriptorSetLayout, nullptr);
 	bufferCleanup();
 	syncCleanup();
 	vkDestroyCommandPool(device, commandPool, nullptr);

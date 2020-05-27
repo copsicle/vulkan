@@ -88,7 +88,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\VulkanSDK\1.2.135.0\Include;C:\Users\Gonen\Documents\Visual Studio 2019\Libraries\glm;C:\Users\Gonen\Documents\Visual Studio 2019\Libraries\glfw\include;C:\Users\Gonen\Documents\Visual Studio 2019\Libraries\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Gonen\Documents\Visual Studio 2019\Libraries\tol;C:\VulkanSDK\1.2.135.0\Include;C:\Users\Gonen\Documents\Visual Studio 2019\Libraries\glm;C:\Users\Gonen\Documents\Visual Studio 2019\Libraries\glfw\include;C:\Users\Gonen\Documents\Visual Studio 2019\Libraries\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -104,7 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\VulkanSDK\1.2.135.0\Include;C:\Users\Gonen\Documents\Visual Studio 2019\Libraries\glm;C:\Users\Gonen\Documents\Visual Studio 2019\Libraries\glfw\include;C:\Users\Gonen\Documents\Visual Studio 2019\Libraries\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Gonen\Documents\Visual Studio 2019\Libraries\tol;C:\VulkanSDK\1.2.135.0\Include;C:\Users\Gonen\Documents\Visual Studio 2019\Libraries\glm;C:\Users\Gonen\Documents\Visual Studio 2019\Libraries\glfw\include;C:\Users\Gonen\Documents\Visual Studio 2019\Libraries\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -122,7 +122,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\VulkanSDK\1.2.135.0\Include;C:\Users\Gonen\Documents\Visual Studio 2019\Libraries\glm;C:\Users\Gonen\Documents\Visual Studio 2019\Libraries\glfw\include;C:\Users\Gonen\Documents\Visual Studio 2019\Libraries\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Gonen\Documents\Visual Studio 2019\Libraries\tol;C:\VulkanSDK\1.2.135.0\Include;C:\Users\Gonen\Documents\Visual Studio 2019\Libraries\glm;C:\Users\Gonen\Documents\Visual Studio 2019\Libraries\glfw\include;C:\Users\Gonen\Documents\Visual Studio 2019\Libraries\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -142,7 +142,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\VulkanSDK\1.2.135.0\Include;C:\Users\Gonen\Documents\Visual Studio 2019\Libraries\glm;C:\Users\Gonen\Documents\Visual Studio 2019\Libraries\glfw\include;C:\Users\Gonen\Documents\Visual Studio 2019\Libraries\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Gonen\Documents\Visual Studio 2019\Libraries\tol;C:\VulkanSDK\1.2.135.0\Include;C:\Users\Gonen\Documents\Visual Studio 2019\Libraries\glm;C:\Users\Gonen\Documents\Visual Studio 2019\Libraries\glfw\include;C:\Users\Gonen\Documents\Visual Studio 2019\Libraries\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -173,6 +173,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="descriptors.cpp" />
     <ClCompile Include="devices.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
@@ -191,6 +192,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="model.cpp" />
     <ClCompile Include="pipeline.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
@@ -254,6 +256,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="descriptors.h" />
     <ClInclude Include="devices.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
@@ -266,6 +269,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="model.h" />
     <ClInclude Include="objects.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>

@@ -6,9 +6,10 @@
 #include "pipeline.h"
 #include "commands.h"
 #include "buffers.h"
-//#include "descriptors.h"
+#include "descriptors.h"
 #include "sync.h"
 #include "cleanup.h"
+#include "model.h"
 
 VkInstance instance;
 VkDebugUtilsMessengerEXT debugMessenger;
@@ -109,41 +110,41 @@ bool checkValidationLayerSupport()
 void createInstance()
 {
 	if (enableValidationLayers && !checkValidationLayerSupport())
-		throw std::runtime_error("validation layer not found");
+		throw std::runtime_error("validation layers requested, but not available!");
 
 	VkApplicationInfo appInfo{};
 	appInfo.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
-	appInfo.pApplicationName = "Vulkan app";
+	appInfo.pApplicationName = "Vulkan window";
 	appInfo.applicationVersion = VK_MAKE_VERSION(1, 0, 0);
 	appInfo.pEngineName = "No Engine";
 	appInfo.engineVersion = VK_MAKE_VERSION(1, 0, 0);
 	appInfo.apiVersion = VK_API_VERSION_1_1;
 
-	auto extensions{ getRequiredExtensions() };
+	VkInstanceCreateInfo createInfo{};
+	createInfo.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
+	createInfo.pApplicationInfo = &appInfo;
 
-	VkInstanceCreateInfo instanceInfo{};
-	instanceInfo.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
-	instanceInfo.pApplicationInfo = &appInfo;
-	instanceInfo.enabledExtensionCount = static_cast<uint32_t>(extensions.size());
-	instanceInfo.ppEnabledExtensionNames = extensions.data();
+	auto extensions = getRequiredExtensions();
+	createInfo.enabledExtensionCount = static_cast<uint32_t>(extensions.size());
+	createInfo.ppEnabledExtensionNames = extensions.data();
 
-	VkDebugUtilsMessengerCreateInfoEXT debugMsngrInfo;
+	VkDebugUtilsMessengerCreateInfoEXT debugCreateInfo;
 	if (enableValidationLayers)
 	{
-		instanceInfo.enabledLayerCount = static_cast<uint32_t>(validationLayers.size());
-		instanceInfo.ppEnabledLayerNames = validationLayers.data();
+		populateDebugMessengerCreateInfo(debugCreateInfo);
 
-		populateDebugMessenger(debugMsngrInfo);
-		instanceInfo.pNext = (VkDebugUtilsMessengerCreateInfoEXT*)&debugMsngrInfo;
+		createInfo.enabledLayerCount = static_cast<uint32_t>(validationLayers.size());
+		createInfo.ppEnabledLayerNames = validationLayers.data();
+		createInfo.pNext = (VkDebugUtilsMessengerCreateInfoEXT*)&debugCreateInfo;
 	}
 	else
 	{
-		instanceInfo.enabledLayerCount = 0;
-		instanceInfo.pNext = nullptr;
+		createInfo.enabledLayerCount = 0;
+		createInfo.pNext = nullptr;
 	}
 
-	if (vkCreateInstance(&instanceInfo, nullptr, &instance) != VK_SUCCESS)
-		throw std::runtime_error("failed to create vulkan instance");
+	if (vkCreateInstance(&createInfo, nullptr, &instance) != VK_SUCCESS)
+		throw std::runtime_error("failed to create instance!");
 }
 
 void recreateSwapChain()
@@ -177,10 +178,13 @@ void initVulkan()
 	initDevices();
 	initSwapChain();
 	initPipeline();
-	createFramebuffers();
 	createCommandPool();
+	createDepthResources();
+	createFramebuffers();
+	initTextures();
+	loadModel();
 	initBuffers();
-	//initDescriptors();
+	initDescriptors();
 	createCommandBuffers();
 	createSyncObjects();
 }

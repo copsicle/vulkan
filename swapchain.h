@@ -1,5 +1,7 @@
 #pragma once
 
+#include <array>
+
 struct SwapChainSupportDetails
 {
 	VkSurfaceCapabilitiesKHR capabilities;
@@ -10,3 +12,4 @@ struct SwapChainSupportDetails
 SwapChainSupportDetails querySwapChainSupport(VkPhysicalDevice device);
 void createFramebuffers();
 void initSwapChain();
+VkImageView createImageView(VkImage image, VkFormat format, VkImageAspectFlags aspectFlags);

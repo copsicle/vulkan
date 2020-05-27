@@ -48,6 +48,12 @@
     <ClCompile Include="sync.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="descriptors.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="model.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\compile.bat">
@@ -101,6 +107,12 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="sync.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="descriptors.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="model.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -24,6 +24,7 @@ void createSurface()
 		throw std::runtime_error("Failed to create window surface");
 }
 
+/*
 void loopGLFW()
 {
 	// Keep the window running and responsive to user actions
@@ -35,3 +36,4 @@ void loopGLFW()
 
 	vkDeviceWaitIdle(device);
 }
+*/
